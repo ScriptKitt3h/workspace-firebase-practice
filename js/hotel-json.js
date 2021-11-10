@@ -22,9 +22,12 @@ $("input[type='button']").click(function (e) {
   console.log(inputdata);
   /* save the data to database */
   var inputJSON = {};
-  inputJSON['name'] = 'ScriptKitt3h';
-  inputJSON['checkin'] = '2021-11-15';
-  inputJSON['checkout'] = '2021-11-17';
+  for (var i = 0; i < inputdata.length; i++) {
+    var n = inputdata[i]['name'];
+    var v = inputJSON[i]['checkin'];
+    console.log(n + ' ' + v);
+    inputJSON[n] = v;
+  }
   firebase.firestore().collection('hotelRSVP').add(inputJSON); // save the data
 
   /* clear the entry */
