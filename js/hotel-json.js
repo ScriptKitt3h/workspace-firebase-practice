@@ -24,7 +24,7 @@ $("input[type='button']").click(function (e) {
   var inputJSON = {};
   for (var i = 0; i < inputdata.length; i++) {
     var n = inputdata[i]['name'];
-    var v = inputJSON[i]['checkin'];
+    var v = inputdata[i]['checkin'];
     console.log(n + ' ' + v);
     inputJSON[n] = v;
   }
@@ -43,7 +43,7 @@ array1.forEach(element => console.log(element));
 
 firebase
   .firestore()
-  .collection('hoteldata')
+  .collection('hotelRSVP')
   .onSnapshot((querySnapshot) => {
     console.log(querySnapshot.size);
     querySnapshot.forEach((doc) => {
