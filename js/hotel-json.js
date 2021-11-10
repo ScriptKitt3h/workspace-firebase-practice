@@ -1,33 +1,33 @@
 var firebaseConfig = {
-  apiKey: "AIzaSyAzcwgZuLA7dO9g4sQhXQVTUgCo0M8m2qM",
-  authDomain: "grocerylist-91956.firebaseapp.com",
-  databaseURL: "https://grocerylist-91956.firebaseio.com",
-  projectId: "grocerylist-91956",
-  storageBucket: "grocerylist-91956.appspot.com",
-  messagingSenderId: "813812426276",
-  appId: "1:813812426276:web:93e5897af12892ff78dab1",
-  measurementId: "G-VZ83BTR72T"
+  apiKey: 'AIzaSyBRTPEm0pj0sBtns4u9DcLGpbBuIoDlWe4',
+  authDomain: 'csci-225-fall21.firebaseapp.com',
+  projectId: 'csci-225-fall21',
+  storageBucket: 'csci-225-fall21.appspot.com',
+  messagingSenderId: '164480810963',
+  appId: '1:164480810963:web:c91f857d7c9bb718fff926',
+  measurementId: 'G-GJQQ8R5FY0',
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-/* object examples 
+/* object examples */
 var testJson = {};
-testJson["lastname"] = "zhang";
-testJson["location"] = "aiken";
+testJson['lastname'] = 'zhang';
+testJson['location'] = 'aiken';
 console.log(testJson);
-*/
 
 // enter data in
-$("input[type='button']").click(function(e) {
+$("input[type='button']").click(function (e) {
   //get the value of form
-  
-  
+  const inputdata = $('form').serializeArray();
+  console.log(inputdata);
   /* save the data to database */
-
-
+  var inputJSON = {};
+  inputJSON['name'] = 'ScriptKitt3h';
+  inputJSON['checkin'] = '2021-11-15';
+  firebase.firestore().collection('hotelRSVP').add(inputJSON); // save the data
 
   /* clear the entry */
-  $("form")[0].reset();
+  $('form')[0].reset();
 });
 
 /* array example
@@ -39,10 +39,10 @@ array1.forEach(element => console.log(element));
 
 firebase
   .firestore()
-  .collection("hoteldata")
-  .onSnapshot(querySnapshot => {
+  .collection('hoteldata')
+  .onSnapshot((querySnapshot) => {
     console.log(querySnapshot.size);
-    querySnapshot.forEach(doc => {
+    querySnapshot.forEach((doc) => {
       console.log(doc.data());
       console.log(doc.data().room);
       console.log(doc.data().checkout);
