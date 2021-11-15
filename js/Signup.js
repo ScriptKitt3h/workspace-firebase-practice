@@ -41,4 +41,9 @@ $('#signup-form').submit(function (e) {
       console.log(error.code);
       console.log(errorMessage);
     });
+
+  //enable google oauth signin
+  $('google').click(function () {
+    console.log('Click google log in method');
+  });
 });
