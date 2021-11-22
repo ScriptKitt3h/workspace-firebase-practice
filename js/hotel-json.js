@@ -28,6 +28,19 @@ firebase.auth().onAuthStateChanged((user) => {
   }
 });
 
+$('#sign-out').click(function () {
+  firebase
+    .auth()
+    .signOut()
+    .then(() => {
+      // Sign-out successful.
+      // Page redirect
+    })
+    .catch((error) => {
+      // An error occurred.
+    });
+});
+
 // enter data in
 $("input[type='button']").click(function (e) {
   //get the value of form
